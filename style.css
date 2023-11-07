@@ -1,0 +1,217 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+    min-width: 0;
+}
+
+body{
+    background-color: #ffffff;
+}
+
+/*Estilo para el header*/
+header{
+    background-color: #333;
+    color: #fff;
+    padding: 20px 0;
+    text-align: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+}
+/*Estilo para el h1 del header*/
+header h1{
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+    margin: 0;
+}
+
+header nav li{
+    display: inline;
+    margin-right: 20px;
+}
+
+nav li{
+    display: block;
+    margin: 5px 0;
+}
+/*Estilo para los enlaces del header*/
+header nav a{
+    text-decoration: none;
+    color: #fff;
+    font-weight: 500;
+}
+
+/*Estilo para los enlaces del header al pasar el raton por encima*/
+header nav a:hover{
+    text-decoration: underline;
+}
+
+.box{
+    margin-top: 120px;
+}
+
+/*Estilo para los container*/
+.container{
+    background-color: #000000;
+    display: flex;
+    padding: 16px;
+    flex-direction: column;
+    justify-content: space-between;
+    margin: 24px;
+    border-radius: 8px;
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    -ms-border-radius: 8px;
+    -o-border-radius: 8px;
+}
+
+.container img{
+    width: 100%;
+}
+
+.container button{
+    margin-top: 16px;
+    padding: 16px 0px;
+}
+
+.search-container{
+    display: grid;
+    grid-template-columns: 9fr 3fr;
+    gap: 1px;
+    width: 100%;
+    max-width: 800px;
+    margin: 16px auto;
+    padding: 8px;
+}
+
+.search-container input{
+    padding: 16px;
+    border-radius: 8px;
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    -ms-border-radius: 8px;
+    -o-border-radius: 8px;
+    font-weight: 400;
+}
+/*Estilo para el loader*/
+.loader{
+    display: none;
+    height: 240px;
+    width: 240px;
+    border: 48px solid #e6e7ec;
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+    border-top-color: #fc8413;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    -o-transform: translate(-50%, -50%);
+    left: 50%;
+    top: 50%;
+    animation: spin 1s infinite;
+    -webkit-animation: spin 1s infinite;
+}
+
+.wrapper{
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+}
+/*Estilo el boton*/
+button{
+    border: none;
+    outline: none;
+    cursor: pointer;
+    background-color: #fc8413;
+    color: #ffffff;
+    border-radius: 8px;
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    -ms-border-radius: 8px;
+    -o-border-radius: 8px;
+    font-weight: 500;
+}
+/*Estilo para el footer*/
+footer{
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 10px 0;
+}
+/*Estilo para los parrafos del footer*/
+footer p{
+    margin: 0;
+    font-weight: 500;
+    font-size: 14px;
+}
+/*Estilo para los enlaces del footer*/
+footer a{
+    color: #fff;
+    text-decoration: none;
+}
+/*Estilo para los enlaces en el footer añ pasar el raton por encima*/
+footer a:hover{
+    text-decoration: underline;   
+}
+
+@media (max-widht: 288px){
+    h1{
+        text-align: center;
+        font-size: 5vh;
+    }
+}
+
+@media (max-widht: 288px){
+    nav ul{
+        text-align: center;
+        font-size: small;
+    }
+    nav ul{
+        text-align: center;
+        font-size: x-small;
+    }
+}
+
+@media (max-widht: 288px){
+    footer p{
+        font-size: small;
+    }
+}
+
+@media (max-widht: 214px){
+    footer p{
+        font-size: small;
+    }
+}
+
+@keyframes spin {
+    100% {
+        transform: translate(-50%, -50%) rotate(360deg);
+        -webkit-transform: translate(-50%, -50%) rotate(360deg);
+        -moz-transform: translate(-50%, -50%) rotate(360deg);
+        -ms-transform: translate(-50%, -50%) rotate(360deg);
+        -o-transform: translate(-50%, -50%) rotate(360deg);
+}
+}
+
+@media screen and (max-widht: 768px){
+    .wrapper{
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .container{
+        margin: 11.2px;
+    }
+}
+
+@media screen and (max-widht : 576px) {
+    .wrapper {
+        grid-template-columns: 1fr;
+    }
+}
