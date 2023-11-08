@@ -8,24 +8,38 @@
 </head>
 <body>
     <header>
-        <h1>Gif Everything</h1>
+        <img class="company-img" src="./img/logo.jpg" alt="">
+        <!-- <h1>Gif Everything</h1> -->
         <nav>
             <ul>
-                <li><a href="#top">Inicio</a></li>
-                <li><a href="#">Acerca de</a></li>
                 <li><a href="#footer">Integrantes</a></li>
             </ul>
         </nav>
     </header>
+    <button onclick="topFunction()" id="topbtn"></button>
 
     <div class="box">
         <div class="search-container">
-          <input type="text" id="search-box" value="meme" />
+          <input type="text" id="search-box" value="slipknot" />
           <button id="submit-btn">Search</button>
         </div>
         <div class="loader"></div>
         <div class="wrapper"></div>
     </div>
+
+    <footer id="footer">
+        <h2>Copyright © 2023 for Gif This</h2>
+        <div class="persons">
+            <ul> 
+                <li><a target="_blank" href="https://github.com/Man1acX"><img src="./img/github.png" id="github-icon"> Lescano Alejandro</a></li>
+                <li><a target="_blank" href="https://github.com/Patcherr"><img src="./img/github.png" id="github-icon"> Pasquinelli Gianluca</a></li>
+                <li><a target="_blank" href="https://github.com/romanalfaro02"><img src="./img/github.png" id="github-icon"> Alfaro Roman</a></li>
+                <li><a target="_blank" href="https://github.com/M4rt1n2003"><img src="./img/github.png" id="github-icon"> Rolon Martin</a></li>
+                <li><a target="_blank" href="https://github.com/Gian2630"><img src="./img/github.png" id="github-icon"> De Sensi Gianluca</a></li>
+            </ul>
+        </div>
+    </footer>
+
 
     <script src="script.js"></script>
     <script src="apikey.js"></script>

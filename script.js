@@ -1,6 +1,14 @@
 const submitBtn = document.getElementById("submit-btn");
+const topBtn = document.getElementById("topbtn");
+const footerEl = document.getElementById("footer");
 
-const generateGif = () => {
+function generateGif() {
+
+  footerEl.style.display = "none";
+  setTimeout(function(){
+    footerEl.style.display = "block";
+  }, 4000);
+  
 
   const loader = document.querySelector(".loader");
   loader.style.display = "block";
@@ -19,16 +27,19 @@ const generateGif = () => {
     .then((resp) => resp.json())
     .then((info) => {
       console.log(info.data);
+      topFunction();
+
 
       const gifsData = info.data;
 
       if (gifsData.length === 0) {
-        alert("No se encontro Gifs para  la busqueda actual.");
+        alert("No se encontro Gifs para la busqueda actual.");
         loader.style.display = "none";
       }else{
         
           gifsData.forEach((gif) => {
-    
+            topFunction();
+
             const container = document.createElement("div");
             container.classList.add("container");
             const iframe = document.createElement("img");
@@ -49,7 +60,8 @@ const generateGif = () => {
             const copyBtn = document.createElement("button");
             copyBtn.innerText = "Get Gif";
             copyBtn.onclick = () => {
-    
+              topFunction();
+
               const copyLink = `https://media4.giphy.com/media/${gif.id}/giphy.mp4`;
     
               navigator.clipboard
@@ -79,6 +91,20 @@ const generateGif = () => {
       }
     });
 };
+window.onscroll = function () { scrollFunction() };
+
+function scrollFunction() {
+    if (document.body.scrollTop > 50 || document.documentElement.scrollTop > 50) {
+        topBtn.style.display = "block";
+    } else {
+        topBtn.style.display = "none";
+    }
+}
+
+function topFunction(){
+  document.body.scrollTop = 0; 
+  document.documentElement.scrollTop = 0; 
+}
 
 submitBtn.addEventListener("click", generateGif);
 window.addEventListener("load", generateGif);
