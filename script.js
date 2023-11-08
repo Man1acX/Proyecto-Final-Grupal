@@ -1,72 +1,77 @@
-import {apiKey} from ("./apikey");
+const submitBtn = document.getElementById("submit-btn");
 
-const submitEl = document.getElementById("submit-btn");
-const loaderEl = document.querySelector(".loader");
-const wrapperEl = document.querySelector(".wrapper");
-const dataEl = document.getElementById("search-box");
+const generateGif = () => {
 
-const generarGif = () => {
-    loaderEl.style.display = "block";
-    wrapperEl.style.display = "none";
-
-    const dato = dataEl.value;
-    const Count = 50;
-
-    const URL = `https://api.giphy.com/v1/gifs/search?api_key=${apiKey}&q=${dato}&limit=${Count}&offset=0&rating=g&lang=en`;
-    document.querySelector(".wrapper").innerHTML = "";
-
-    fetch(URL)
-        .then((Response) => Response.json())
-        .then((info) => {
-            console.log(info.data);
-            const dataGif = info.data;
-            dataGif.forEach((gif) => {
-                const container = document.createElement("div");
-                container.classList.add("container");
-
-                const image = document.createElement("img");
-                console.log(gif);
-
-                image.setAttribute("src", gif.image.downsized_medium.url);
-                image.onload = () => {
-                    Count--;
-                    if(Count == 0){
-                        loaderEl.style.display = "none";
-                        document.querySelector("wrapper").style.display = "grid";
-                    }
-                };
-                container.append(image);
+  const loader = document.querySelector(".loader");
+  loader.style.display = "block";
+  document.querySelector(".wrapper").style.display = "none";
 
 
-                const copiar = document.createElement("button");
-                copiar.innerText = "Copy";
-                copiar.onclick = () => {
+  const q = document.getElementById("search-box").value;
 
-                    const copyurl = `https://media4.giphy.com/media/${gif.id}/giphy.mp4`;
+  let gifCount = 50;
 
-                    navigator.clipboard
-                        .writeText(copyurl)
-                        .then(() => {
-                            alert("Gif copied to clipboard");
-                        })
-                        .catch(() => {
-                            alert("Gif copied to clipboard");
+  const finalURL = `https://api.giphy.com/v1/gifs/search?api_key=${apiKey}&q=${q}&limit=${gifCount}&offset=0&rating=g&lang=en`;
+  document.querySelector(".wrapper").innerHTML = "";
 
-                            const hiddenInput = document.createElement("input");
-                            hiddenInput.setAttribute("type", "text");
-                            document.body.appendChild(hiddenInput);
-                            hiddenInput.value = copyurl;
-                            hiddenInput.select();
-                            document.execCommand("copy");
-                            document.body.removeChild(hiddenInput);
-                        });
-                };
-                container.append(copiar);
-                document.querySelector(".wrapper").append(container);
+
+  fetch(finalURL)
+    .then((resp) => resp.json())
+    .then((info) => {
+      console.log(info.data);
+
+      const gifsData = info.data;
+      gifsData.forEach((gif) => {
+
+        const container = document.createElement("div");
+        container.classList.add("container");
+        const iframe = document.createElement("img");
+        console.log(gif);
+        iframe.setAttribute("src", gif.images.downsized_medium.url);
+        iframe.onload = () => {
+
+          gifCount--;
+          if (gifCount == 0) {
+
+            loader.style.display = "none";
+            document.querySelector(".wrapper").style.display = "grid";
+          }
+        };
+        container.append(iframe);
+
+
+        const copyBtn = document.createElement("button");
+        copyBtn.innerText = "Copy Link";
+        copyBtn.onclick = () => {
+
+          const copyLink = `https://media4.giphy.com/media/${gif.id}/giphy.mp4`;
+
+          navigator.clipboard
+            .writeText(copyLink)
+            .then(() => {
+              alert("GIF copied to clipboard");
+            })
+            .catch(() => {
+
+              alert("GIF copied to clipboard");
+
+              const hiddenInput = document.createElement("input");
+              hiddenInput.setAttribute("type", "text");
+              document.body.appendChild(hiddenInput);
+              hiddenInput.value = copyLink;
+
+              hiddenInput.select();
+
+              document.execCommand("copy");
+
+              document.body.removeChild(hiddenInput);
             });
-        });
+        };
+        container.append(copyBtn);
+        document.querySelector(".wrapper").append(container);
+      });
+    });
 };
 
-submitEl.addEventListener("click", generarGif);
-window.addEventListener("load", generarGif);
-
+submitBtn.addEventListener("click", generateGif);
+window.addEventListener("load", generateGif);
