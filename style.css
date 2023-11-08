@@ -8,6 +8,10 @@
 
 body{
     background-color: #ffffff;
+    background-image: url(img/fondo.jpg);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
 }
 
 /*Estilo para el header*/
@@ -55,7 +59,10 @@ header nav a:hover{
 
 /*Estilo para los container*/
 .container{
-    background-color: #000000;
+    background: transparent;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(20px);
+    box-shadow: 0 0 10px rgba(0, 0, 0, .2);
     display: flex;
     padding: 16px;
     flex-direction: column;
@@ -79,22 +86,23 @@ header nav a:hover{
 
 .search-container{
     display: grid;
-    grid-template-columns: 9fr 3fr;
+    grid-template-columns: 9fr 2fr;
     gap: 1px;
     width: 100%;
-    max-width: 800px;
-    margin: 16px auto;
-    padding: 8px;
+    max-width: 400px;
+    margin: 15px auto;
+    padding: 15px;
 }
 
 .search-container input{
     padding: 16px;
-    border-radius: 8px;
-    -webkit-border-radius: 8px;
-    -moz-border-radius: 8px;
-    -ms-border-radius: 8px;
-    -o-border-radius: 8px;
-    font-weight: 400;
+    margin-right: 20px;
+    border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+    font-weight: 100;
 }
 /*Estilo para el loader*/
 .loader{
@@ -107,7 +115,7 @@ header nav a:hover{
     -moz-border-radius: 50%;
     -ms-border-radius: 50%;
     -o-border-radius: 50%;
-    border-top-color: #fc8413;
+    border-top-color: #fc1313;
     position: absolute;
     transform: translate(-50%, -50%);
     -webkit-transform: translate(-50%, -50%);
@@ -129,38 +137,17 @@ button{
     border: none;
     outline: none;
     cursor: pointer;
-    background-color: #fc8413;
+    background-color: #fc1313;
     color: #ffffff;
-    border-radius: 8px;
-    -webkit-border-radius: 8px;
-    -moz-border-radius: 8px;
-    -ms-border-radius: 8px;
-    -o-border-radius: 8px;
+    border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
     font-weight: 500;
-}
-/*Estilo para el footer*/
-footer{
-    background-color: #333;
-    color: #fff;
-    text-align: center;
-    padding: 10px 0;
-}
-/*Estilo para los parrafos del footer*/
-footer p{
-    margin: 0;
-    font-weight: 500;
-    font-size: 14px;
-}
-/*Estilo para los enlaces del footer*/
-footer a{
-    color: #fff;
-    text-decoration: none;
-}
-/*Estilo para los enlaces en el footer añ pasar el raton por encima*/
-footer a:hover{
-    text-decoration: underline;   
 }
 
+/*responsive del nav*/
 @media (max-widht: 288px){
     h1{
         text-align: center;
@@ -179,17 +166,7 @@ footer a:hover{
     }
 }
 
-@media (max-widht: 288px){
-    footer p{
-        font-size: small;
-    }
-}
-
-@media (max-widht: 214px){
-    footer p{
-        font-size: small;
-    }
-}
+/*animacion de cargado*/
 
 @keyframes spin {
     100% {
@@ -201,17 +178,34 @@ footer a:hover{
 }
 }
 
-@media screen and (max-widht: 768px){
-    .wrapper{
-        grid-template-columns: repeat(2, 1fr);
-    }
-    .container{
-        margin: 11.2px;
-    }
-}
 
-@media screen and (max-widht : 576px) {
+/*responsive de los gifs*/
+@media screen and (max-width: 1400px) {
     .wrapper {
-        grid-template-columns: 1fr;
+      grid-template-columns: repeat(4, 1fr);
     }
-}
+    .container {
+      margin: 0.7em;
+    }
+  }
+  @media screen and (max-width: 1100px) {
+    .wrapper {
+      grid-template-columns: repeat(3, 1fr);
+    }
+    .container {
+      margin: 0.7em;
+    }
+  }
+  @media screen and (max-width: 768px) {
+    .wrapper {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    .container {
+      margin: 0.7em;
+    }
+  }
+  @media screen and (max-width: 576px) {
+    .wrapper {
+      grid-template-columns: 1fr;
+    }
+  }

@@ -21,55 +21,62 @@ const generateGif = () => {
       console.log(info.data);
 
       const gifsData = info.data;
-      gifsData.forEach((gif) => {
 
-        const container = document.createElement("div");
-        container.classList.add("container");
-        const iframe = document.createElement("img");
-        console.log(gif);
-        iframe.setAttribute("src", gif.images.downsized_medium.url);
-        iframe.onload = () => {
-
-          gifCount--;
-          if (gifCount == 0) {
-
-            loader.style.display = "none";
-            document.querySelector(".wrapper").style.display = "grid";
-          }
-        };
-        container.append(iframe);
-
-
-        const copyBtn = document.createElement("button");
-        copyBtn.innerText = "Copy Link";
-        copyBtn.onclick = () => {
-
-          const copyLink = `https://media4.giphy.com/media/${gif.id}/giphy.mp4`;
-
-          navigator.clipboard
-            .writeText(copyLink)
-            .then(() => {
-              alert("GIF copied to clipboard");
-            })
-            .catch(() => {
-
-              alert("GIF copied to clipboard");
-
-              const hiddenInput = document.createElement("input");
-              hiddenInput.setAttribute("type", "text");
-              document.body.appendChild(hiddenInput);
-              hiddenInput.value = copyLink;
-
-              hiddenInput.select();
-
-              document.execCommand("copy");
-
-              document.body.removeChild(hiddenInput);
-            });
-        };
-        container.append(copyBtn);
-        document.querySelector(".wrapper").append(container);
-      });
+      if (gifsData.length === 0) {
+        alert("No se encontro Gifs para  la busqueda actual.");
+        loader.style.display = "none";
+      }else{
+        
+          gifsData.forEach((gif) => {
+    
+            const container = document.createElement("div");
+            container.classList.add("container");
+            const iframe = document.createElement("img");
+            console.log(gif);
+            iframe.setAttribute("src", gif.images.downsized_medium.url);
+            iframe.onload = () => {
+    
+              gifCount--;
+              if (gifCount == 0) {
+    
+                loader.style.display = "none";
+                document.querySelector(".wrapper").style.display = "grid";
+              }
+            };
+            container.append(iframe);
+    
+    
+            const copyBtn = document.createElement("button");
+            copyBtn.innerText = "Get Gif";
+            copyBtn.onclick = () => {
+    
+              const copyLink = `https://media4.giphy.com/media/${gif.id}/giphy.mp4`;
+    
+              navigator.clipboard
+                .writeText(copyLink)
+                .then(() => {
+                  alert("GIF copied to clipboard");
+                })
+                .catch(() => {
+    
+                  alert("GIF copied to clipboard");
+    
+                  const hiddenInput = document.createElement("input");
+                  hiddenInput.setAttribute("type", "text");
+                  document.body.appendChild(hiddenInput);
+                  hiddenInput.value = copyLink;
+    
+                  hiddenInput.select();
+    
+                  document.execCommand("copy");
+    
+                  document.body.removeChild(hiddenInput);
+                });
+            };
+            container.append(copyBtn);
+            document.querySelector(".wrapper").append(container);
+          });
+      }
     });
 };
 
