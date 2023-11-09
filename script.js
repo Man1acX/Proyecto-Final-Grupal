@@ -1,15 +1,14 @@
 const submitBtn = document.getElementById("submit-btn");
 const topBtn = document.getElementById("topbtn");
 const footerEl = document.getElementById("footer");
+const stickerEl = document.getElementById("sticker-radio");
+const sticker2El = document.getElementById("gif-radio");
+let tipoEl = "gifs";
 
 function generateGif() {
 
   footerEl.style.display = "none";
-  setTimeout(function(){
-    footerEl.style.display = "block";
-  }, 4000);
-  
-
+ 
   const loader = document.querySelector(".loader");
   loader.style.display = "block";
   document.querySelector(".wrapper").style.display = "none";
@@ -19,10 +18,17 @@ function generateGif() {
 
   let gifCount = 50;
 
-  const finalURL = `https://api.giphy.com/v1/gifs/search?api_key=${apiKey}&q=${q}&limit=${gifCount}&offset=0&rating=g&lang=en`;
+  stickerEl.addEventListener("change", function() {
+    tipoEl = "stickers";
+  });
+  sticker2El.addEventListener("change", function() {
+    tipoEl = "gifs";
+  });
+
+  const finalURL = `https://api.giphy.com/v1/${tipoEl}/search?api_key=${apiKey}&q=${q}&limit=${gifCount}&offset=0&rating=g&lang=en`;
   document.querySelector(".wrapper").innerHTML = "";
 
-
+ 
   fetch(finalURL)
     .then((resp) => resp.json())
     .then((info) => {
@@ -51,6 +57,7 @@ function generateGif() {
               if (gifCount == 0) {
     
                 loader.style.display = "none";
+                footerEl.style.display = "block";
                 document.querySelector(".wrapper").style.display = "grid";
               }
             };

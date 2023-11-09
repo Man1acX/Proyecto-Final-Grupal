@@ -46,8 +46,7 @@ header a{
 }
 
 header nav li{
-    display: inline;
-    margin-right: 20px;
+    margin-right: 10px;
 }
 
 nav li{
@@ -123,7 +122,7 @@ header nav a:hover{
 
 .search-container{
     display: grid;
-    grid-template-columns: 9fr 2fr;
+    grid-template-columns: 9fr 4fr;
     gap: 1px;
     width: 100%;
     max-width: 400px;
@@ -143,6 +142,7 @@ header nav a:hover{
     -o-border-radius: 10px;
     font-weight: 100;
 }
+
 /*Estilo para el loader*/
 .loader{
     display: none;
@@ -162,7 +162,7 @@ header nav a:hover{
     -ms-transform: translate(-50%, -50%);
     -o-transform: translate(-50%, -50%);
     left: 50%;
-    top: 50%;
+    top: 60%;
     animation: spin 2s infinite;
     -webkit-animation: spin 2s infinite;
 }
@@ -185,70 +185,6 @@ button{
     -o-border-radius: 10px;
     font-weight: 500;
 }
-
-/*responsive del nav*/
-@media (max-widht: 288px){
-    h1{
-        text-align: center;
-        font-size: 5vh;
-    }
-}
-
-@media (max-widht: 288px){
-    nav ul{
-        text-align: center;
-        font-size: small;
-    }
-    nav ul{
-        text-align: center;
-        font-size: x-small;
-    }
-}
-
-/*animacion de cargado*/
-
-@keyframes spin {
-    100% {
-        transform: translate(-50%, -50%) rotate(360deg);
-        -webkit-transform: translate(-50%, -50%) rotate(360deg);
-        -moz-transform: translate(-50%, -50%) rotate(360deg);
-        -ms-transform: translate(-50%, -50%) rotate(360deg);
-        -o-transform: translate(-50%, -50%) rotate(360deg);
-}
-}
-
-
-/*responsive de los gifs*/
-@media screen and (max-width: 1400px) {
-    .wrapper {
-      grid-template-columns: repeat(4, 1fr);
-    }
-    .container {
-      margin: 11px;
-    }
-  }
-  @media screen and (max-width: 1100px) {
-    .wrapper {
-      grid-template-columns: repeat(3, 1fr);
-    }
-    .container {
-      margin: 11px;
-    }
-  }
-  @media screen and (max-width: 770px) {
-    .wrapper {
-      grid-template-columns: repeat(2, 1fr);
-    }
-    .container {
-      margin: 11px;
-    }
-  }
-  @media screen and (max-width: 580px) {
-    .wrapper {
-      grid-template-columns: 1fr;
-    }
-  }
-
 
 /* perfiles de git */
 h2{
@@ -278,6 +214,55 @@ li a{
     width: 30px;
 }
 
+
+
+/*animacion de cargado*/
+
+@keyframes spin {
+    100% {
+        transform: translate(-50%, -50%) rotate(360deg);
+        -webkit-transform: translate(-50%, -50%) rotate(360deg);
+        -moz-transform: translate(-50%, -50%) rotate(360deg);
+        -ms-transform: translate(-50%, -50%) rotate(360deg);
+        -o-transform: translate(-50%, -50%) rotate(360deg);
+    }
+}
+
+
+/*responsive de los gifs*/
+@media screen and (max-width: 1400px) {
+    .wrapper {
+      grid-template-columns: repeat(4, 1fr);
+    }
+    .container {
+      margin: 11px;
+    }
+}
+@media screen and (max-width: 1100px) {
+    .wrapper {
+      grid-template-columns: repeat(3, 1fr);
+    }
+    .container {
+      margin: 11px;
+    }
+}
+@media screen and (max-width: 770px) {
+    .wrapper {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    .container {
+      margin: 11px;
+    }
+}
+@media screen and (max-width: 580px) {
+    .wrapper {
+      grid-template-columns: 1fr;
+    }
+}
+
+
+
+/* responsive del footer */
 @media screen and (max-width: 1500px){
     #footer li{
         margin: 20px;
@@ -320,5 +305,13 @@ li a{
         margin: 0;
         display: grid;
         grid-template-columns: repeat(1, 1fr);
+    }
+}
+
+/* responsive del buscador */
+@media screen and (max-width: 300px){
+    .search-container{
+        display: grid;
+        grid-template-columns: 8fr 4fr;
     }
 }

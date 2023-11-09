@@ -9,7 +9,6 @@
 <body>
     <header>
         <img class="company-img" src="./img/logo.jpg" alt="">
-        <!-- <h1>Gif Everything</h1> -->
         <nav>
             <ul>
                 <li><a href="#footer">Integrantes</a></li>
@@ -20,7 +19,14 @@
 
     <div class="box">
         <div class="search-container">
-          <input type="text" id="search-box" value="slipknot" />
+            <label>
+                <input type="radio" name="search-type" value="gifs" id="gif-radio" checked>
+                GIF
+            </label>
+            <label>
+                <input type="radio" name="search-type" value="stickers" id="sticker-radio">Sticker
+            </label>
+          <input type="text" id="search-box" placeholder="Search gifs or stickers" value="slipknot" />
           <button id="submit-btn">Search</button>
         </div>
         <div class="loader"></div>
