@@ -99,9 +99,9 @@ function generateGif() {
     });
 };
 window.onscroll = function () { scrollFunction() };
-
+topBtn.style.display = "none";
 function scrollFunction() {
-    if (document.body.scrollTop > 50 || document.documentElement.scrollTop > 50) {
+    if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
         topBtn.style.display = "block";
     } else {
         topBtn.style.display = "none";
