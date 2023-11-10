@@ -28,7 +28,7 @@ header{
 }
 
 .company-img{
-  
+    cursor: pointer;
     max-width: 150px;
     height: auto;
 }

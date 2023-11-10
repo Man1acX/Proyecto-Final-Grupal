@@ -3,7 +3,12 @@ const topBtn = document.getElementById("topbtn");
 const footerEl = document.getElementById("footer");
 const stickerEl = document.getElementById("sticker-radio");
 const sticker2El = document.getElementById("gif-radio");
+const RefreshEl = document.querySelector(".company-img");
 let tipoEl = "gifs";
+
+RefreshEl.addEventListener("click", function(){
+  window.location.reload();
+});
 
 function generateGif() {
 
